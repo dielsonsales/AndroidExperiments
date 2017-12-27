@@ -19,6 +19,9 @@
         <activity android:name=".spanned.SpannedActivity"
             android:parentActivityName=".MainActivity">
         </activity>
+        <activity android:name=".matcher.MatchActivity"
+            android:parentActivityName=".MainActivity">
+        </activity>
     </application>
 
 </manifest>

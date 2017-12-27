@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.Spannable
 import android.util.Log
 import android.widget.ArrayAdapter
+import io.github.dielsonsales.experiments.matcher.MatchActivity
 import io.github.dielsonsales.experiments.spanned.SpannedActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -17,8 +18,8 @@ class MainActivity : AppCompatActivity() {
 
         val mainAdapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
         mainAdapter.addAll(arrayListOf(
-                "Screen 1",
-                "Screen 2"
+                "Spanned Activity",
+                "Match Activity"
         ))
 
         list_view.adapter = mainAdapter
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("MainActivity", "On item click, position: " + position)
             when(position) {
                 0 -> startActivity(Intent(this@MainActivity, SpannedActivity::class.java))
+                1 -> startActivity(Intent(this@MainActivity, MatchActivity::class.java))
             }
         }
     }
