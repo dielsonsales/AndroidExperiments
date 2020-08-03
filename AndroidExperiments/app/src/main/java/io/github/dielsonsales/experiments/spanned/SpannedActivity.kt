@@ -3,7 +3,6 @@ package io.github.dielsonsales.experiments.spanned
 import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.TextPaint
@@ -14,6 +13,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import io.github.dielsonsales.experiments.R
 import kotlinx.android.synthetic.main.activity_spanned.*
 
@@ -62,7 +62,7 @@ class SpannedActivity: AppCompatActivity() {
                         val clickableSpan = link[0] as CustomClickableSpan
                         clickableSpan.ispressed = false
                         widget?.invalidate()
-                        clickableSpan.onClick(widget)
+                        if (widget != null) clickableSpan.onClick(widget);
                     }
                 }
             }
@@ -70,17 +70,18 @@ class SpannedActivity: AppCompatActivity() {
         }
     }
 
-    class CustomClickableSpan(val context: Context): ClickableSpan() {
+    class CustomClickableSpan(private val context: Context): ClickableSpan() {
 
         var ispressed: Boolean = false
 
-        override fun onClick(widget: View?) {
+        override fun onClick(widget: View) {
             Toast.makeText(context, "Clicked", Toast.LENGTH_SHORT).show()
         }
-        override fun updateDrawState(ds: TextPaint?) {
+
+        override fun updateDrawState(ds: TextPaint) {
             super.updateDrawState(ds)
-            ds?.color = if (ispressed) Color.BLUE else Color.RED
-            ds?.isUnderlineText = false
+            ds.color = if (ispressed) Color.BLUE else Color.RED
+            ds.isUnderlineText = false
         }
     }
 

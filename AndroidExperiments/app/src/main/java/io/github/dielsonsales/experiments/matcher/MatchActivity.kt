@@ -2,10 +2,9 @@ package io.github.dielsonsales.experiments.matcher
 
 import android.graphics.Point
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.DisplayMetrics
-import android.util.Log
 import android.view.MotionEvent
+import androidx.appcompat.app.AppCompatActivity
 import io.github.dielsonsales.experiments.R
 import kotlinx.android.synthetic.main.activity_match.*
 

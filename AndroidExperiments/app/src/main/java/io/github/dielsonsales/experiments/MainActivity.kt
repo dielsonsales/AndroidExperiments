@@ -1,11 +1,11 @@
 package io.github.dielsonsales.experiments
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Spannable
 import android.util.Log
 import android.widget.ArrayAdapter
+import androidx.appcompat.app.AppCompatActivity
 import io.github.dielsonsales.experiments.matcher.MatchActivity
 import io.github.dielsonsales.experiments.spanned.SpannedActivity
 import kotlinx.android.synthetic.main.activity_main.*
